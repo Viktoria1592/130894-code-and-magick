@@ -60,7 +60,7 @@ window.renderStatistics = function (ctx, names, times) {
     if (names[i] === 'Вы') {
       ctx.fillStyle = 'rgba(255, 0, 0, 1)';
     } else {
-      ctx.fillStyle = 'rgba(255, 0, 0,' + Math.random() + ')';
+      ctx.fillStyle = 'rgba(0, 0, 255,' + Math.random() + ')';
     }
     currentHeightBar = BAR_HEIGHT * times[i] / maxTime;
     ctx.fillRect(COORDIN_LEFT + (BAR_WIDTH + GAP_BETWEEN_BAR) * i, CLOUD_HEIGHT - currentHeightBar - TEXT_HEIGHT * 3, BAR_WIDTH, currentHeightBar);
