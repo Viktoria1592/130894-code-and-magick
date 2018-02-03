@@ -20,16 +20,16 @@ var generateRandomParameter = function (arr) {
   return arr[Math.floor(Math.random() * arr.length)];
 };
 
-var generateRandomAppearance = function (arr) {
+var generateRandomAppearance = function (wizards) {
   for (var i = 0; i < WIZARD_QUANTITY; i++) {
     newWizard = {
       name: generateRandomParameter(WIZARD_NAMES) + ' ' + generateRandomParameter(WIZARD_SECOND_NAMES),
       coatColor: generateRandomParameter(WIZARD_COAT_COLOR),
       eyesColor: generateRandomParameter(WIZARD_EYES_COLOR)
     };
-    arr[i] = newWizard;
+    wizards[i] = newWizard;
   }
-  return arr;
+  return wizards;
 };
 
 var renderWizard = function (wizard) {
