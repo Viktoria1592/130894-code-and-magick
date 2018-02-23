@@ -1,9 +1,8 @@
-//DOM
+// //DOM
 'use strict';
 
 (function () {
   var userDialog = document.querySelector('.setup');
-// userDialog.classList.remove('hidden');
 
   var similarListElement = userDialog.querySelector('.setup-similar-list');
   var similarWizardTemplate = document.querySelector('#similar-wizard-template').content;
@@ -13,15 +12,25 @@
   var WIZARD_SECOND_NAMES = ['да Марья', 'Верон', 'Мирабелла', 'Вальц', 'Онопко', 'Топольницкая', 'Нионго', 'Ирвинг'];
   var WIZARD_COAT_COLOR = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
   var WIZARD_EYES_COLOR = ['black', 'red', 'blue', 'yellow', 'green'];
-
   var wizards = [];
-
   var newWizard;
+
+  var setupWizard = setup.querySelector('.setup-wizard');
+  var wizardCoat = setupWizard.querySelector('.wizard-coat');
+  var wizardCoatInput = document.querySelector('input[name="coat-color"]');
+  var wizardEyes = setupWizard.querySelector('.wizard-eyes');
+  var wizardEyesInput = document.querySelector('input[name="eyes-color"]');
+  var setupFireball = setup.querySelector('.setup-fireball-wrap');
+  var setupFireballInput = document.querySelector('input[name="fireball-color"]');
+  var coatColors = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
+  var eyesColors = ['black', 'red', 'blue', 'yellow', 'green'];
+  var fireballColors = ['#ee4830', '#30a8ee', '#5ce6c0', '#e848d5', '#e6e848'];
 
   window.generateRandomParameter = function (arr) {
     return arr[Math.floor(Math.random() * arr.length)];
   };
 
+  // Генерация новых волшебников и добавление в дерево
   var generateRandomAppearance = function (currentWizards) {
     for (var i = 0; i < WIZARD_QUANTITY; i++) {
       newWizard = {
@@ -50,8 +59,12 @@
     }
     similarListElement.appendChild(fragment);
   };
-
   addWizardsInDOM();
 
   userDialog.querySelector('.setup-similar').classList.remove('hidden');
+
+  // Раскраска основного волшебника по клику на его определенную часть
+  window.colorize(wizardCoat, coatColors, wizardCoatInput);
+  window.colorize(wizardEyes, eyesColors, wizardEyesInput);
+  window.colorize(setupFireball, fireballColors, setupFireballInput);
 })();
