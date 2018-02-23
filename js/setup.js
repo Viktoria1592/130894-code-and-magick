@@ -1,4 +1,4 @@
-// //DOM
+// DOM
 'use strict';
 
 (function () {
@@ -15,28 +15,24 @@
   var wizards = [];
   var newWizard;
 
-  var setupWizard = setup.querySelector('.setup-wizard');
+  var setupWizard = window.setup.querySelector('.setup-wizard');
   var wizardCoat = setupWizard.querySelector('.wizard-coat');
   var wizardCoatInput = document.querySelector('input[name="coat-color"]');
   var wizardEyes = setupWizard.querySelector('.wizard-eyes');
   var wizardEyesInput = document.querySelector('input[name="eyes-color"]');
-  var setupFireball = setup.querySelector('.setup-fireball-wrap');
+  var setupFireball = window.setup.querySelector('.setup-fireball-wrap');
   var setupFireballInput = document.querySelector('input[name="fireball-color"]');
   var coatColors = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
   var eyesColors = ['black', 'red', 'blue', 'yellow', 'green'];
   var fireballColors = ['#ee4830', '#30a8ee', '#5ce6c0', '#e848d5', '#e6e848'];
 
-  window.generateRandomParameter = function (arr) {
-    return arr[Math.floor(Math.random() * arr.length)];
-  };
-
   // Генерация новых волшебников и добавление в дерево
   var generateRandomAppearance = function (currentWizards) {
     for (var i = 0; i < WIZARD_QUANTITY; i++) {
       newWizard = {
-        name: generateRandomParameter(WIZARD_NAMES) + ' ' + generateRandomParameter(WIZARD_SECOND_NAMES),
-        coatColor: generateRandomParameter(WIZARD_COAT_COLOR),
-        eyesColor: generateRandomParameter(WIZARD_EYES_COLOR)
+        name: window.generateRandomParameter(WIZARD_NAMES) + ' ' + window.generateRandomParameter(WIZARD_SECOND_NAMES),
+        coatColor: window.generateRandomParameter(WIZARD_COAT_COLOR),
+        eyesColor: window.generateRandomParameter(WIZARD_EYES_COLOR)
       };
       currentWizards[i] = newWizard;
     }
