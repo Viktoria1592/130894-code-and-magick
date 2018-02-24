@@ -61,7 +61,7 @@
   userDialog.querySelector('.setup-similar').classList.remove('hidden');
 
   // Раскраска основного волшебника по клику на его определенную часть
-  window.colorize.colorizeWizard(wizardCoat, coatColors, wizardCoatInput);
-  window.colorize.colorizeWizard(wizardEyes, eyesColors, wizardEyesInput);
-  window.colorize.colorizeWizard(setupFireball, fireballColors, setupFireballInput);
+  window.colorize.changeColorOfWizard(wizardCoat, coatColors, wizardCoatInput);
+  window.colorize.changeColorOfWizard(wizardEyes, eyesColors, wizardEyesInput);
+  window.colorize.changeColorOfWizard(setupFireball, fireballColors, setupFireballInput);
 })();

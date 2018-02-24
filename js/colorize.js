@@ -5,7 +5,7 @@
     generateRandomParameter: function (arr) {
       return arr[Math.floor(Math.random() * arr.length)];
     },
-    colorizeWizard: function (element, array, hiddenInput) {
+    changeColorOfWizard: function (element, array, hiddenInput) {
       element.addEventListener('click', function () {
         var color = window.colorize.generateRandomParameter(array);
         if (element.tagName.toLowerCase() === 'div') {
