@@ -3,9 +3,7 @@
 // Настройка открытия/закрытия окна настройки волшебников
 (function () {
   var ESC_KEYCODE = 27;
-  var ENTER_KEYCODE = 13;
   var setupOpen = document.querySelector('.setup-open');
-  window.setup = document.querySelector('.setup');
   var setupClose = window.setup.querySelector('.setup-close');
   var setupUserName = window.setup.querySelector('.setup-user-name');
 
@@ -28,9 +26,7 @@
   });
 
   setupOpen.addEventListener('keydown', function (evt) {
-    if (evt.keyCode === ENTER_KEYCODE) {
-      openPopup();
-    }
+    window.utils.isEnterEvent(evt, openPopup);
   });
 
   setupClose.addEventListener('click', function () {
@@ -38,8 +34,6 @@
   });
 
   setupClose.addEventListener('keydown', function (evt) {
-    if (evt.keyCode === ENTER_KEYCODE) {
-      closePopup();
-    }
+    window.utils.isEnterEvent(evt, closePopup);
   });
 })();

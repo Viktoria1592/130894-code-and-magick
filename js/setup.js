@@ -15,6 +15,7 @@
   var wizards = [];
   var newWizard;
 
+  window.setup = document.querySelector('.setup');
   var setupWizard = window.setup.querySelector('.setup-wizard');
   var wizardCoat = setupWizard.querySelector('.wizard-coat');
   var wizardCoatInput = document.querySelector('input[name="coat-color"]');
@@ -30,9 +31,9 @@
   var generateRandomAppearance = function (currentWizards) {
     for (var i = 0; i < WIZARD_QUANTITY; i++) {
       newWizard = {
-        name: window.generateRandomParameter(WIZARD_NAMES) + ' ' + window.generateRandomParameter(WIZARD_SECOND_NAMES),
-        coatColor: window.generateRandomParameter(WIZARD_COAT_COLOR),
-        eyesColor: window.generateRandomParameter(WIZARD_EYES_COLOR)
+        name: window.colorize.generateRandomParameter(WIZARD_NAMES) + ' ' + window.colorize.generateRandomParameter(WIZARD_SECOND_NAMES),
+        coatColor: window.colorize.generateRandomParameter(WIZARD_COAT_COLOR),
+        eyesColor: window.colorize.generateRandomParameter(WIZARD_EYES_COLOR)
       };
       currentWizards[i] = newWizard;
     }
@@ -60,7 +61,7 @@
   userDialog.querySelector('.setup-similar').classList.remove('hidden');
 
   // Раскраска основного волшебника по клику на его определенную часть
-  window.colorize(wizardCoat, coatColors, wizardCoatInput);
-  window.colorize(wizardEyes, eyesColors, wizardEyesInput);
-  window.colorize(setupFireball, fireballColors, setupFireballInput);
+  window.colorize.colorizeWizard(wizardCoat, coatColors, wizardCoatInput);
+  window.colorize.colorizeWizard(wizardEyes, eyesColors, wizardEyesInput);
+  window.colorize.colorizeWizard(setupFireball, fireballColors, setupFireballInput);
 })();
