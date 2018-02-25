@@ -1,5 +1,5 @@
 'use strict';
-
+// Отрисовка статистики победителей после окончания игры
 var CLOUD_WIDTH = 420;
 var CLOUD_HEIGHT = 270;
 var CLOUD_X = 100;
@@ -26,13 +26,11 @@ var renderCloud = function (ctx, x, y, color) {
 
 var getMaxElement = function (arr) {
   var maxElement = arr[0];
-
   for (var n = 0; n < arr.length; n++) {
     if (arr[n] > maxElement) {
       maxElement = arr[n];
     }
   }
-
   return maxElement;
 };
 
