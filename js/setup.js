@@ -64,4 +64,41 @@
   window.colorize.changeColorOfWizard(wizardCoat, coatColors, wizardCoatInput);
   window.colorize.changeColorOfWizard(wizardEyes, eyesColors, wizardEyesInput);
   window.colorize.changeColorOfWizard(setupFireball, fireballColors, setupFireballInput);
+
+  // Перетаскивание элементов из магазина в артифакты
+  var shopElement = window.setup.querySelector('.setup-artifacts-shop');
+  var draggedItem = null;
+  var artifactsElement = window.setup.querySelector('.setup-artifacts');
+
+  shopElement.addEventListener('dragstart', function (evt) {
+    if (evt.target.tagName.toLowerCase() === 'img') {
+      draggedItem = evt.target;
+      evt.dataTransfer.setData('text/plain', evt.target.alt);
+      evt.dataTransfer.effectAllowed = 'copy';
+    }
+    artifactsElement.style.outline = '2px solid red';
+  });
+  artifactsElement.addEventListener('dragover', function (evt) {
+    evt.preventDefault();
+    return false;
+  });
+  artifactsElement.addEventListener('drop', function (evt) {
+    evt.target.style.backgroundColor = '';
+    var draggedItemCopy = draggedItem.cloneNode(true);
+    if (evt.target.hasChildNodes() !== true && evt.target.tagName === 'DIV') {
+      evt.target.appendChild(draggedItemCopy);
+    }
+    artifactsElement.style.outline = 'none';
+    evt.preventDefault();
+  });
+  artifactsElement.addEventListener('dragenter', function (evt) {
+    if (evt.target.hasChildNodes() !== true && evt.target.tagName === 'DIV') {
+      evt.target.style.backgroundColor = 'yellow';
+      evt.preventDefault();
+    }
+  });
+  artifactsElement.addEventListener('dragleave', function (evt) {
+    evt.target.style.backgroundColor = '';
+    evt.preventDefault();
+  });
 })();
